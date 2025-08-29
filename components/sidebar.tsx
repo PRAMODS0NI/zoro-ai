@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
-import { TbSquareToggle } from "react-icons/tb";
+import { RiSidebarUnfoldFill } from "react-icons/ri";
+import { RiSidebarFoldFill } from "react-icons/ri";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { IoChatboxOutline } from "react-icons/io5";
 import Link from 'next/link';
@@ -18,12 +19,13 @@ function Sidebar() {
       {/* Desktop Sidebar */}
       <div className={`h-screen hidden md:block bg-gray-200 dark:bg-gray-800 shadow-md transition-all duration-300 ${open ? 'w-20' : 'w-56'}`}>
         <div className='flex items-center p-5 gap-3'>
-          <TbSquareToggle onClick={() => setOpen(!open)} className='cursor-pointer dark:text-white flex-shrink-0' size={25} />
-          <span
+          {open ? <RiSidebarUnfoldFill onClick={() => setOpen(!open)} className='cursor-pointer dark:text-white flex-shrink-0' size={25} />
+            : <RiSidebarFoldFill onClick={() => setOpen(!open)} className='cursor-pointer dark:text-white flex-shrink-0' size={25} />}
+          <Link href="/"
             className={`font-medium text-2xl whitespace-nowrap dark:text-white transition-all duration-200 
   ${open ? "opacity-0 w-0" : "opacity-100 w-auto"}`}>
             ZORO
-          </span>
+          </Link>
         </div>
         <div className='flex-col flex'>
           {menuItems.map((item, i) => (
@@ -38,7 +40,7 @@ function Sidebar() {
       </div>
 
       {/* Mobile Sidebar */}
-      <TbSquareToggle onClick={() => setOpen(!open)} className='cursor-pointer md:hidden h-[6vh] absolute left-5 top-0 z-50 dark:text-white' size={25} />
+      <RiSidebarUnfoldFill onClick={() => setOpen(!open)} className='cursor-pointer md:hidden h-[6vh] absolute left-5 top-0 z-50 dark:text-white' size={25} />
 
       {/* Overlay when menu is open */}
       {open && <div className="fixed inset-0 bg-black/40 z-40 md:hidden" onClick={() => setOpen(false)} />}
@@ -46,14 +48,14 @@ function Sidebar() {
       <div className={`fixed top-0 left-0 h-full w-64 bg-gray-200 dark:bg-gray-800 shadow-md z-50 transform transition-transform duration-300 md:hidden
         ${open ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className='p-5 flex items-center gap-3'>
-          <span className="font-medium text-2xl dark:text-white">ZORO</span>
+          <Link href="/" onClick={() => setOpen(false)} className="font-medium text-2xl dark:text-white">ZORO</Link>
         </div>
         <div className='flex-col flex'>
           {menuItems.map((item, i) => (
             <Link
               key={i}
               href={item.href}
-              onClick={() => setOpen(false)}  // 👈 AUTO CLOSE on click
+              onClick={() => setOpen(false)}
               className='flex items-center w-full group cursor-pointer pl-5 py-4 hover:bg-gray-100 dark:hover:bg-gray-900 gap-2'
             >
               {item.icon}
