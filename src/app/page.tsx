@@ -20,8 +20,10 @@ function page() {
 
       {/* Extra Note */}
       <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-        Tip: You can explore past chats anytime from the "Chats" section.
+        Tip: You can explore past chats anytime from the &quot;Chats&quot; section.
       </p>
+
+
     </div>
   );
 }
