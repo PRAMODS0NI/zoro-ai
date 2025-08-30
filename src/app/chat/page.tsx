@@ -29,19 +29,19 @@ function Chat() {
 
     return (
         <>
-            {value ? <div className="flex relative flex-col items-center h-full px-4">
+            {value ? <div className="flex relative flex-col items-center h-full md:px-4">
 
                 {/* Conversation */}
-                <div className="flex container md:w-2/3 flex-col w-full">
+                <div className="flex md:container md:w-2/3 flex-col w-full">
                     <div className="flex items-center w-full justify-end mb-10">
-                        <p className="ml-2 text-xl font-normal dark:bg-white/10 bg-black/10 p-2 rounded-2xl">{message}</p>
+                        <p className="ml-2 md:text-xl text-md font-normal dark:bg-white/10 bg-black/10 p-2 rounded-2xl">{message}</p>
                     </div>
 
                     {
-                        bot ? <motion.div initial={{ translateX: 0 }} animate={{ translateX: 100 }} className="flex items-center w-full justify-start mb-2">
-                            <p className="ml-2 text-xl font-normal rounded-2xl">This is a test message from the Bot</p>
+                        bot ? <motion.div initial={{ translateX: -100 }} animate={{ translateX: 0 }} className="flex items-center w-full justify-start mb-2">
+                            <p className="ml-2 md:text-xl text-md font-normal rounded-2xl">This is a test message from the Bot</p>
                         </motion.div> : <div className="flex items-center w-full justify-start mb-2">
-                            <p className="ml-2 text-xl font-normal">Loading</p>
+                            <p className="ml-2 md:text-xl text-md font-normal">Loading</p>
                         </div>
                     }
 
