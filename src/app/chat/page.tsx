@@ -1,8 +1,7 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { BsArrowUpSquareFill } from "react-icons/bs";
 import { motion } from 'motion/react';
-import { useSearchParams } from 'next/navigation';
 
 function Chat() {
 
@@ -11,7 +10,6 @@ function Chat() {
     const [message, setMessage] = useState("");
     const [bot, setBot] = useState('')
 
-    const searchParams = useSearchParams();
 
     function handleSend() {
         setValue(message)
@@ -20,11 +18,6 @@ function Chat() {
         }, 1000);
     };
 
-    useEffect(() => {
-        if (searchParams.get("new") === "true") {
-            setValue('')
-        }
-    }, [searchParams])
 
 
     return (
