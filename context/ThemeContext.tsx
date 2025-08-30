@@ -13,7 +13,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    // localStorage से theme load करना
     const savedTheme = localStorage.getItem("theme") as Theme;
     if (savedTheme) {
       setTheme(savedTheme);
@@ -25,9 +24,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
 
-    // पहले पुरानी theme हटाओ
+    // remove previous theme
     document.documentElement.classList.remove(theme);
-    // नई theme add करो
+    // add new theme
     document.documentElement.classList.add(newTheme);
 
     localStorage.setItem("theme", newTheme);

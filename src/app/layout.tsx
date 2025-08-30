@@ -20,7 +20,7 @@ export default function RootLayout({
 
       <body>
         <ThemeProvider>
-          <div className="bg-gray-100 overflow-hidden dark:bg-gray-700 transition duration-300 text-black dark:text-white flex">
+          <div className="bg-gray-100 dark:bg-gray-700 overflow-hidden transition duration-300 text-black dark:text-white flex">
             <Sidebar />
             <div className="w-full h-full">
               <Navbar />

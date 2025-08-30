@@ -4,9 +4,9 @@ import { chats } from "@/constants/chats";
 
 function ChatsPage() {
     return (
-        <div className="">
+        <div className="h-full">
             <h1 className="text-2xl font-bold mb-6">Your Chats</h1>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 h-full overflow-scroll">
                 {chats.map((chat) => (
                     <div
                         key={chat.id}

@@ -24,7 +24,7 @@ function Sidebar() {
           <Link href="/"
             className={`font-medium text-2xl whitespace-nowrap dark:text-white transition-all duration-200 
   ${open ? "opacity-0 w-0" : "opacity-100 w-auto"}`}>
-            ZORO
+            Zoro
           </Link>
         </div>
         <div className='flex-col flex'>
