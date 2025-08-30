@@ -1,20 +1,51 @@
 "use client"
-import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsArrowUpSquareFill } from "react-icons/bs";
 import { motion } from 'motion/react';
-
+import { useSearchParams } from 'next/navigation';
 
 function Chat() {
 
     const [model, setModel] = useState("GPT-3.5");
     const [value, setValue] = useState("");
     const [message, setMessage] = useState("");
+    const [bot, setBot] = useState('')
+
+    const searchParams = useSearchParams();
+
+    function handleSend() {
+        setValue(message)
+        setTimeout(() => {
+            setBot(message)
+        }, 1000);
+    };
+
+    useEffect(() => {
+        if (searchParams.get("new") === "true") {
+            setValue('')
+        }
+    }, [searchParams])
+
 
     return (
         <>
             {value ? <div className="flex relative flex-col items-center h-full px-4">
 
+                {/* Conversation */}
+                <div className="flex container md:w-2/3 flex-col w-full">
+                    <div className="flex items-center w-full justify-end mb-10">
+                        <p className="ml-2 text-xl font-normal dark:bg-white/10 bg-black/10 p-2 rounded-2xl">{message}</p>
+                    </div>
+
+                    {
+                        bot ? <motion.div initial={{ translateX: 0 }} animate={{ translateX: 100 }} className="flex items-center w-full justify-start mb-2">
+                            <p className="ml-2 text-xl font-normal rounded-2xl">This is a test message from the Bot</p>
+                        </motion.div> : <div className="flex items-center w-full justify-start mb-2">
+                            <p className="ml-2 text-xl font-normal">Loading</p>
+                        </div>
+                    }
+
+                </div>
 
                 {/* Input Container */}
                 <motion.div initial={{ translateY: -400 }} animate={{ translateY: 0 }} className="flex flex-col fixed bottom-10 sm:flex-row items-center px-5 dark:bg-gray-800 bg-gray-200 
@@ -74,15 +105,15 @@ function Chat() {
                                 className="px-3 py-2 bg-transparent dark:text-white text-black text-md outline-none w-full"
                                 placeholder={`Ask Here (Using ${model})`}
                                 onChange={(e) => setMessage(e.target.value)}
-                               
+
                             />
-                            
-                                <BsArrowUpSquareFill
-                                    className="cursor-pointer dark:text-white ml-2 flex-shrink-0 hover:text-orange-500 transition"
-                                    size={28}
-                                     onClick={() => setValue(message)}
-                                />
-                            
+
+                            <BsArrowUpSquareFill
+                                className="cursor-pointer dark:text-white ml-2 flex-shrink-0 hover:text-orange-500 transition"
+                                size={28}
+                                onClick={() => handleSend()}
+                            />
+
                         </div>
                     </div>
                 </div>

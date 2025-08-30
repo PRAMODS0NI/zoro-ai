@@ -10,7 +10,7 @@ function Sidebar() {
   const [open, setOpen] = useState(false);
 
   const menuItems = [
-    { label: "New Chat", icon: <BsPlusCircleFill size={25} className="text-orange-600" />, href: "/chat" },
+    { label: "New Chat", icon: <BsPlusCircleFill size={25} className="text-orange-600" />, href: "/chat?new=true" },
     { label: "Chats", icon: <IoChatboxOutline size={25} className="dark:text-white" />, href: "/chats" }
   ];
 
