@@ -99,7 +99,6 @@ App runs on **[http://localhost:3000](http://localhost:3000)**
 
 * **Frontend**: Next.js, React, Tailwind CSS
 * **Animations**: Framer Motion
-* **AI**: OpenAI API
 * **Deployment**: Vercel
 
 ---
