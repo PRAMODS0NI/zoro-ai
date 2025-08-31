@@ -1,4 +1,3 @@
-// constants/chats.ts
 export interface Chat {
   id: number;
   title: string;
@@ -27,7 +26,7 @@ export const chats: Chat[] = [
   },
   {
     id: 4,
-    title: "General Chat with Monika about Weekend Plans",
+    title: "General Chat with Ritika about Weekend Plans",
     lastMessage: "Haha yes, that sounds fun 😂 Let’s finalize the plan by tonight so that everyone is on the same page. Also, don’t forget to bring UNO cards!",
     time: "2 days ago",
   },

@@ -24,9 +24,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
 
-    // remove previous theme
     document.documentElement.classList.remove(theme);
-    // add new theme
     document.documentElement.classList.add(newTheme);
 
     localStorage.setItem("theme", newTheme);

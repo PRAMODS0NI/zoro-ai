@@ -42,7 +42,6 @@ function Sidebar() {
       {/* Mobile Sidebar */}
       <RiSidebarUnfoldFill onClick={() => setOpen(!open)} className='cursor-pointer md:hidden h-[6vh] absolute left-5 top-0 z-50 dark:text-white' size={25} />
 
-      {/* Overlay when menu is open */}
       {open && <div className="fixed inset-0 bg-black/40 z-40 md:hidden" onClick={() => setOpen(false)} />}
 
       <div className={`fixed top-0 left-0 h-full w-64 bg-gray-200 dark:bg-gray-800 shadow-md z-50 transform transition-transform duration-300 md:hidden
