@@ -8,7 +8,7 @@ function Chat() {
     const [model, setModel] = useState("GPT-3.5");
     const [value, setValue] = useState("");
     const [message, setMessage] = useState("");
-    const [bot, setBot] = useState('')
+    const [bot, setBot] = useState("")
 
 
     function handleSend() {
